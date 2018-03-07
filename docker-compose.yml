@@ -7,3 +7,9 @@ services:
       - './app:/usr/share/nginx/html'
     ports:
       - '80:80'
+  php:
+    build: './config/php-fpm'
+    volumes:
+      - './apps:/usr/share/nginx/html'
+    ports:
+      - '9000:9000'

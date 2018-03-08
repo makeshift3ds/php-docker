@@ -16,3 +16,6 @@ services:
       - "./app:/var/www/html"
     ports:
       - "9000:9000"
+      - "9001:9001"
+    environment:
+      XDEBUG_CONFIG: remote_host=docker.for.mac.localhost remote_port=9001

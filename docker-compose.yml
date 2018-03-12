@@ -3,6 +3,7 @@ version: "3"
 services:
   app:
     build: "./config/nginx"
+    container_name: bp_nginx
     volumes:
       - "./app:/var/www/html"
       - "./config/nginx/default.conf:/etc/nginx/conf.d/default.conf"
@@ -12,6 +13,7 @@ services:
       - php
   php:
     build: "./config/php-fpm"
+    container_name: bp_php
     volumes:
       - "./app:/var/www/html"
     ports:
@@ -25,7 +27,7 @@ services:
       - "./app:/app"
   mysql:
     image: mysql
-    container_name: ${MYSQL_HOST}
+    container_name: bp_mysql
     restart: always
     env_file:
         - ".env"

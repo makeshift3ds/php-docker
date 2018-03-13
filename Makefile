@@ -13,13 +13,16 @@ help:
 	@echo "  tinker       					run php artisan tinker"
 
 migrate:
-	@docker-compose exec -T php php artisan migrate
+	@docker-compose exec php php artisan migrate
 
 migrate-reset:
-	@docker-compose exec -T php php artisan migrate:reset
+	@docker-compose exec php php artisan migrate:reset
 
 migrate-refresh:
-	@docker-compose exec -T php php artisan migrate:refresh --seed
+	@docker-compose exec php php artisan migrate:refresh --seed
+
+tests-dev:
+	@docker-compose exec php vendor/bin/phpunit
 
 composer-install:
 	@docker-compose run --rm --volume=$(shell pwd)/app:/app composer install

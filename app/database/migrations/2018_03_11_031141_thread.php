@@ -16,7 +16,7 @@ class Thread extends Migration
         Schema::create('threads', function(Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->text('description');
+            $table->text('body');
             $table->timestamps();
         });
     }

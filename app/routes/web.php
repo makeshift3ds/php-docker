@@ -15,7 +15,8 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/foo', function () use ($router) {
-    return 'hello';
+$router->get('/threads', function () use ($router) {
+    $threads = App\Thread::all();
+    return $threads;
 });
 
